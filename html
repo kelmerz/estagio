@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD de Veículos</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    h1 {
+      color: #000;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .form {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #2f00ff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <veiculo-form></veiculo-form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script>
+  <script src="veiculo-form.vue"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      components: {
+        VeiculoForm,
+      },
+    });
+  </script>
+  <div class="container">
+    <h1>CRUD de Veículos</h1>
+    <h2>Adicionar Novo Veículo</h2>
+    <form action="adicionar.php" method="post">
+      <div class="locadora">
+        <label for="locadora">Locadora</label>
+        <input type="text" name="locadora" id="locadora" placeholder="Locadora">
+      </div>
+      <div class="modelo">
+        <label for="modelo">Modelo</label>
+        <input type="text" name="modelo" id="modelo" placeholder="Modelo">
+      </div>
+      <div class="marca">
+        <label for="marca">Marca</label>
+        <input type="text" name="marca" id="marca" placeholder="Marca">
+      </div>
+      <div class="ano">
+        <label for="ano">Ano</label>
+        <input type="text" name="ano" id="ano" placeholder="Ano">
+      </div>
+      <div class="motor">
+        <label for="motor">Motor</label>
+        <input type="text" name="motor" id="motor" placeholder="Motor">
+      </div>
+      <div class="portas">
+        <label for="portas">Portas</label>
+        <input type="text" name="portas" id="portas" placeholder="Portas">
+      </div>
+      <div class="cambio">
+        <label for="cambio">Câmbio</label>
+        <select name="cambio" id="cambio">
+          <option value="manual">Manual</option>
+          <option value="automático">Automático</option>
+        </select>
+      </div>
+      <div class="arCondicionado">
+        <label for="arCondicionado">Ar Condicionado</label>
+        <input type="checkbox" name="arCondicionado" id="arCondicionado" value="1">
+        <div class="adicionar">
+          <button type="submit" onclick="adicionarVeiculo()">Adicionar Veículo</button>
+        </div> <br>
+        <div class="atualizar">
+          <button type="submit" onclick="location.href='/lista'">Atualizar Lista</button>
+        </div>
+        </form>
+  </div>
+</body>
+</html>
