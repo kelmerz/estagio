@@ -1,0 +1,14 @@
+CREATE TABLE `veiculos` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `locadora` VARCHAR(255) NOT NULL,
+  `modelo` VARCHAR(255) NOT NULL,
+  `marca` VARCHAR(255) NOT NULL,
+  `ano` INT NOT NULL,
+  `motor` VARCHAR(255) NOT NULL,
+  `portas` INT NOT NULL,
+  `cambio` ENUM('manual', 'automático') NOT NULL,
+  `ar_condicionado` BOOLEAN NOT NULL,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
