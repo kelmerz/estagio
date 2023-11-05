@@ -49,48 +49,50 @@
   <div class="container">
     <h1>CRUD de Veículos</h1>
     <h2>Adicionar Novo Veículo</h2>
-    <form action="adicionar.php" method="post">
+
+    <div class="form">
       <div class="locadora">
         <label for="locadora">Locadora</label>
-        <input type="text" name="locadora" id="locadora" placeholder="Locadora">
+        <input type="text" name="locadora" id="locadora" placeholder="Locadora" v-model="locadora">
       </div>
       <div class="modelo">
         <label for="modelo">Modelo</label>
-        <input type="text" name="modelo" id="modelo" placeholder="Modelo">
+        <input type="text" name="modelo" id="modelo" placeholder="Modelo" v-model="modelo">
       </div>
       <div class="marca">
         <label for="marca">Marca</label>
-        <input type="text" name="marca" id="marca" placeholder="Marca">
+        <input type="text" name="marca" id="marca" placeholder="Marca" v-model="marca">
       </div>
       <div class="ano">
         <label for="ano">Ano</label>
-        <input type="text" name="ano" id="ano" placeholder="Ano">
+        <input type="text" name="ano" id="ano" placeholder="Ano" v-model="ano">
       </div>
       <div class="motor">
         <label for="motor">Motor</label>
-        <input type="text" name="motor" id="motor" placeholder="Motor">
+        <input type="text" name="motor" id="motor" placeholder="Motor" v-model="motor">
       </div>
       <div class="portas">
         <label for="portas">Portas</label>
-        <input type="text" name="portas" id="portas" placeholder="Portas">
+        <input type="text" name="portas" id="portas" placeholder="Portas" v-model="portas">
       </div>
       <div class="cambio">
         <label for="cambio">Câmbio</label>
-        <select name="cambio" id="cambio">
+        <select name="cambio" id="cambio" v-model="cambio">
           <option value="manual">Manual</option>
           <option value="automático">Automático</option>
         </select>
       </div>
       <div class="arCondicionado">
         <label for="arCondicionado">Ar Condicionado</label>
-        <input type="checkbox" name="arCondicionado" id="arCondicionado" value="1">
-        <div class="adicionar">
-          <button type="submit" onclick="adicionarVeiculo()">Adicionar Veículo</button>
-        </div> <br>
-        <div class="atualizar">
-          <button type="submit" onclick="location.href='/lista'">Atualizar Lista</button>
-        </div>
-        </form>
+        <input type="checkbox" name="arCondicionado" id="arCondicionado" value="1" v-model="arCondicionado">
+      </div>
+      <div class="adicionar">
+        <button type="button" onclick="adicionarVeiculo">Adicionar Veículo</button>
+      </div> <br>
+      <div class="atualizar">
+        <button type="button" onclick="atualizarLista">Atualizar Lista</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
