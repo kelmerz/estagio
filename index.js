@@ -1,42 +1,75 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const connection = new Sequelize('database', 'username', 'password', {
+const sequelize = require('sequelize');
+
+const Veiculo = require('./models/veiculo');
+
+const connection = new sequelize({
   dialect: 'mysql',
   host: 'localhost',
-  port: 3306
+  port: 3306,
+  database: 'meu_banco_de_dados',
+  username: 'meu_usuario',
+  password: 'minha_senha',
 });
 
-const Veiculo = connection.define('veiculo', {
+Veiculo.init({
   id: {
-    type: DataTypes.INTEGER,
+    type: sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
   locadora: {
-    type: DataTypes.STRING,
+    type: sequelize.STRING,
   },
   modelo: {
-    type: DataTypes.STRING,
+    type: sequelize.STRING,
   },
   marca: {
-    type: DataTypes.STRING,
+    type: sequelize.STRING,
   },
   ano: {
-    type: DataTypes.INTEGER,
+    type: sequelize.INTEGER,
   },
   motor: {
-    type: DataTypes.STRING,
+    type: sequelize.STRING,
   },
   portas: {
-    type: DataTypes.INTEGER,
+    type: sequelize.INTEGER,
   },
   cambio: {
-    type: DataTypes.ENUM('manual', 'automático'),
+    type: sequelize.ENUM('manual', 'automático'),
   },
-  ar_condicionado: {
-    type: DataTypes.BOOLEAN,
+  arCondicionado: {
+    type: sequelize.BOOLEAN,
   },
+}, {
+  tableName: 'veiculos',
+  sequelize,
 });
 
-Veiculo.findAll().then(veiculos => {
-  console.log(veiculos);
+const veiculo = new Veiculo({
+  locadora: 'Locadora XYZ',
+  modelo: 'Modelo ABC',
+  marca: 'Marca 123',
+  ano: 2023,
+  motor: '1.0L',
+  portas: 4,
+  cambio: 'automático',
+  arCondicionado: true,
 });
+
+veiculo.save() /
+  .then(() => {
+    console.log('Veículo salvo com sucesso!');
+  })
+  .catch(error => {
+    console.error('Erro ao salvar veículo:', error);
+  });
+
+Veiculo.findAll()
+  .then(veiculos => {
+    console.log('Veículos recuperados com sucesso!');
+    console.log(veiculos);
+  })
+  .catch(error => {
+    console.error('Erro ao buscar veículos:', error);
+  });
