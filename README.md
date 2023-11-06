@@ -8,3 +8,4 @@ Primeiramente teria que abrir o HTML e CSS no Visual Studio(index.html e style.c
 
 Segundamente, Teria que abrir os APIS, junto com os codígos do JavaScript e para executar corretamente esse código tem que baixar o Node.js no navegador e depois baixar as dependências dentro do cmd, primeiramente baixar o sequelize dentro do cmd com o comando <npm install sequelize express>, depois baixar <npm install nodemon>, depois baixar o <npm install express> e por fim o <npm install mysql2>. Desse modo com todos os pacotes instalados, abre o API com o comando index2.js.
 
+Por fim teria que abrir o arquivo MYQSL e executar no WorkBench.
