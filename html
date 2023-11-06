@@ -44,6 +44,74 @@
       components: {
         VeiculoForm,
       },
+      data: {
+        locadora: '',
+        modelo: '',
+        marca: '',
+        ano: '',
+        motor: '',
+        portas: '',
+        cambio: '',
+        arCondicionado: false,
+
+        veiculos: [],
+      },
+      methods: {
+        salvarVeiculo() {
+          if (!this.locadora) {
+            alert('O campo locadora é obrigatório!');
+            return;
+          }
+          if (!this.modelo) {
+            alert('O campo modelo é obrigatório!');
+            return;
+          }
+          if (!this.marca) {
+            alert('O campo marca é obrigatório!');
+            return;
+          }
+          if (!this.ano) {
+            alert('O campo ano deve ser um número!');
+            return;
+          }
+
+          axios.post('/veiculos', {
+            locadora: this.locadora,
+            modelo: this.modelo,
+            marca: this.marca,
+            ano: this.ano,
+            motor: this.motor,
+            portas: this.portas,
+            cambio: this.cambio,
+            arCondicionado: this.arCondicionado,
+          }).then(response => {
+            // Atualizar lista de veículos
+            this.veiculos.push(response.data);
+
+            this.locadora = '';
+            this.modelo = '';
+            this.marca = '';
+            this.ano = '';
+            this.motor = '';
+            this.portas = '';
+            this.cambio = '';
+            this.arCondicionado = false;
+
+            alert('Veículo salvo com sucesso!');
+          }).catch(error => {
+            console.error('Erro ao salvar veículo:', error);
+          });
+        },
+
+        atualizarLista() {
+          axios.get('/veiculos').then(response => {
+            this.veiculos = response.data;
+          });
+        },
+      },
+      mounted() {
+        this.atualizarLista();
+      },
     });
   </script>
   <div class="container">
@@ -55,44 +123,4 @@
         <label for="locadora">Locadora</label>
         <input type="text" name="locadora" id="locadora" placeholder="Locadora" v-model="locadora">
       </div>
-      <div class="modelo">
-        <label for="modelo">Modelo</label>
-        <input type="text" name="modelo" id="modelo" placeholder="Modelo" v-model="modelo">
-      </div>
-      <div class="marca">
-        <label for="marca">Marca</label>
-        <input type="text" name="marca" id="marca" placeholder="Marca" v-model="marca">
-      </div>
-      <div class="ano">
-        <label for="ano">Ano</label>
-        <input type="text" name="ano" id="ano" placeholder="Ano" v-model="ano">
-      </div>
-      <div class="motor">
-        <label for="motor">Motor</label>
-        <input type="text" name="motor" id="motor" placeholder="Motor" v-model="motor">
-      </div>
-      <div class="portas">
-        <label for="portas">Portas</label>
-        <input type="text" name="portas" id="portas" placeholder="Portas" v-model="portas">
-      </div>
-      <div class="cambio">
-        <label for="cambio">Câmbio</label>
-        <select name="cambio" id="cambio" v-model="cambio">
-          <option value="manual">Manual</option>
-          <option value="automático">Automático</option>
-        </select>
-      </div>
-      <div class="arCondicionado">
-        <label for="arCondicionado">Ar Condicionado</label>
-        <input type="checkbox" name="arCondicionado" id="arCondicionado" value="1" v-model="arCondicionado">
-      </div>
-      <div class="adicionar">
-        <button type="button" onclick="adicionarVeiculo">Adicionar Veículo</button>
-      </div> <br>
-      <div class="atualizar">
-        <button type="button" onclick="atualizarLista">Atualizar Lista</button>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+      <div class="model
