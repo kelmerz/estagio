@@ -6,9 +6,9 @@ const connection = new sequelize({
   dialect: 'mysql',
   host: 'localhost',
   port: 3306,
-  database: 'meu_banco_de_dados',
-  username: 'meu_usuario',
-  password: 'minha_senha',
+  database: 'veiculos',
+  username: 'root',
+  password: 'ANSKk08aPEDbFjDO',
 });
 
 Veiculo.init({
