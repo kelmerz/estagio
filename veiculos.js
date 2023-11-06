@@ -37,5 +37,4 @@ function fetchVeiculos() {
 const veiculo = new Veiculo('Locadora XYZ', 'Modelo ABC', 'Marca 123', 2023, '1.0L', 4, 'Automático', true);
 saveVeiculo(veiculo);
 
-// Usage example
 fetchVeiculos();
