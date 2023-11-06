@@ -64,6 +64,6 @@ Executando o arquivo MYQSL:
 O arquivo MYQSL contém as instruções SQL para criar o banco de dados e a tabela de veículos. Para executar o arquivo MYQSL, deverá ser utilizado p seguinte comando dentro do terminal.
 <mysql -u root -p < database.sql>
 
-Por fim baixar o sequelize dentro do cmd com o comando <npm install sequelize express>, depois baixar <npm install nodemon>, depois baixar o <npm install express> e por fim o <npm install mysql2>. Desse modo tendo todos os pacotes instalados, executa o API com o comando index2.js.E depois conecte o código JavaScript ao servidor Express, importando a biblioteca axios no arquivo JavaScript para conectar com o HTML,abrindo um terminal e abra o código do servidor Express (index.js). Depois abra o arquivo dentro do Visual Studio Code, executando o código executando-o no terminal do Node.js.
+Por fim tem baixar o sequelize dentro do cmd com o comando <npm install sequelize express>, depois baixar <npm install nodemon>, depois baixar o <npm install express> e por fim o <npm install mysql2>. Desse modo tendo todos os pacotes instalados, executa o API com o comando index2.js.E depois conecte o código JavaScript ao servidor Express, importando a biblioteca axios no arquivo JavaScript para conectar com o HTML,abrindo um terminal e abra o código do servidor Express (index.js). Depois tem que ser aberto o arquivo dentro do Visual Studio Code, executando o código executando-o no terminal do Node.js.
 
 
