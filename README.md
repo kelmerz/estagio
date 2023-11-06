@@ -1,4 +1,4 @@
-# estagio
+# estagio 
 
 Meu trabalho precisa do Node.js e as pendencias necessarias Express, mysql2, Sequelize, Nodemon. Usei o Workbench para fazer o banco de dados.
 
